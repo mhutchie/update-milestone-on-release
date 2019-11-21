@@ -4,12 +4,18 @@ This GitHub Action updates and closes milestones automatically when a matching r
 
 ## Introduction
 
-When a Pre-Release is Published, any milestone sharing the same `<MAJOR>.<MINOR>.<PATCH>` revision as the releases tag will have its:
+When a pre-release is published, if the releases tag includes the same `<MAJOR>.<MINOR>.<PATCH>` revision as a revision included within the title of an open milestone, the milestone will have its:
 * Description updated to `Pre-release: [<RELEASE-TAG-NAME>](<RELEASE-URL>)`.
 
-When a Release is Published, any milestone sharing the same `<MAJOR>.<MINOR>.<PATCH>` revision as the releases tag will have its:
+When a release is published, if the releases tag includes the same `<MAJOR>.<MINOR>.<PATCH>` revision as a revision included within the title of an open milestone, the milestone will have its:
 * Description updated to `Release: [<RELEASE-TAG-NAME>](<RELEASE-URL>)`.
 * State updated to 'closed'.
+
+## Examples
+
+When a pre-release with tag `v1.0.0-beta.0` is published, a milestone that exists with the title `v1.0.0` will have its description updated to `Pre-release: [v1.0.0-beta.0](<RELEASE-URL>)`.
+
+When a release with tag `v1.0.0` is published, a milestone that exists with the title `v1.0.0` will have its description updated to `Release: [v1.0.0](<RELEASE-URL>)`, and be closed.
 
 ## Usage
 
@@ -27,12 +33,10 @@ jobs:
   update-milestone-on-release:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout'
-        uses: actions/checkout@v1
       - name: 'Update Milestone on Release'
         uses: mhutchie/update-milestone-on-release@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-3. Commit and push the change to your GitHub repository, and it will start running when any new releases are published.
+3. Commit and push the change to your GitHub repository, and it will start running whenever a new release is published.
