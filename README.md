@@ -2,6 +2,10 @@
 
 This GitHub Action updates and closes milestones automatically when a matching release is published.
 
+![Release Example](https://github.com/mhutchie/update-milestone-on-release/raw/master/media/release.png)
+
+![Milestone Example](https://github.com/mhutchie/update-milestone-on-release/raw/master/media/milestone.png)
+
 ## Introduction
 
 When a pre-release is published, if the releases tag includes the same `<MAJOR>.<MINOR>.<PATCH>` revision as a revision included within the title of an open milestone, the milestone will have its:
