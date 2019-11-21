@@ -1,0 +1,5 @@
+name: 'Update Milestone on Release'
+description: 'This action updates and closes milestones automatically when a matching release is published.'
+runs:
+  using: 'node12'
+  main: 'index.js'
