@@ -1,5 +1,9 @@
 name: 'Update Milestone on Release'
 description: 'This action updates and closes milestones automatically when a matching release is published.'
+author: 'Michael Hutchison @mhutchie'
+inputs: 
+  github-token:
+    description: 'The GITHUB_TOKEN secret'
 runs:
   using: 'node12'
   main: 'index.js'
